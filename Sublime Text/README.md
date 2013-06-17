@@ -15,7 +15,7 @@ This package has been tested and approved for Sublime Text versions 2 and 3 (bet
 
 ### Windows Installer
 1. Download and extract [`ZIP file`](https://github.com/NSIS-Handbook/Tools/archive/master.zip)
-2. Compile `installer.nsi`
+2. Compile `scripts\installer.nsi`
 3. Execute installer and follow instructions
 
 ## Donate
