@@ -123,10 +123,10 @@ Function .onInit
 	${ElseIf} ${FileExists} "$APPDATA\Sublime Text 2\Packages\*.*"
 	${AndIf} ${FileExists} "$APPDATA\Sublime Text 3\Packages\*.*"
 		StrCpy $INSTDIR "$APPDATA\Sublime Text 2\Packages"
-		MessageBox MB_YESNO|MB_ICONQUESTION "Do you want to install these packages for Sublime Text 3 (beta)?" IDNO +2
+		MessageBox MB_YESNO|MB_ICONQUESTION "Do you prefer Sublime Text 3 over version 2?" IDNO +2
 		StrCpy $INSTDIR "$APPDATA\Sublime Text 3\Packages"
 	${ElseIfNot} ${FileExists} "$APPDATA\Sublime Text 2\Packages\*.*"
 	${AndIfNot} ${FileExists} "$APPDATA\Sublime Text 3\Packages\*.*"
-		MessageBox MB_OK|MB_ICONEXCLAMATION "Sublime Text not found."
+		MessageBox MB_OK|MB_ICONEXCLAMATION "Sublime Text not found, please specify the packages directory."
 	${EndIf}
 FunctionEnd
