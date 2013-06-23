@@ -4,7 +4,7 @@ A collection of useful [NSIS](http://nsis.sourceforge.net) packages for [Sublime
 
 This package has been tested and approved for Sublime Text versions 2 and 3 (beta).
 
-### Features
+### Includes
 * [Syntax Highlighting](https://github.com/SublimeText/NSIS)
 * [Auto-completion for NSIS syntax, Useful Headers, bundled plug-ins](https://github.com/idleberg/NSIS-Sublime-Text)
 * [Auto-completion for third party plug-ins and macros](https://github.com/idleberg/NSIS-Sublime-Text-Addons)
