@@ -21,12 +21,22 @@ Var copyBat
 !insertmacro MUI_LANGUAGE "English"
 
 ; Sections ---------------------------------
-Section "Syntax Highlighting" sublimeSyntax
-	SetOutPath "$INSTDIR\NSIS"
-	
-	File "..\NSIS.tmLanguage"
-	File "..\Miscellaneous.tmPreferences"
-SectionEnd
+SectionGroup /e "Auto Completion" sublimeSyntax
+
+	Section "NSIS Scripts" sublimeNsisSyntax
+		SetOutPath "$INSTDIR\NSIS"
+		
+		File "..\NSIS.tmLanguage"
+		File "..\Miscellaneous.tmPreferences"
+	SectionEnd
+
+	Section "NSIS Language Files" sublimeNlfSyntax
+		SetOutPath "$INSTDIR\NSIS"
+		
+		File "..\NLF.tmLanguage"
+	SectionEnd
+
+SectionGroupEnd
 
 SectionGroup /e "Auto Completion" sublimeAutoCompletion
 
@@ -53,6 +63,7 @@ SectionGroup /e "Auto Completion" sublimeAutoCompletion
 		
 		File "..\snippets\*.sublime-snippet"
 	SectionEnd
+
 SectionGroupEnd
 
 Section "Build System" sublimeBuild
@@ -91,7 +102,9 @@ Section "Menu" sublimeMenu
 SectionEnd
 
 ; Descriptions -----------------------------
-LangString DESC_sublimeSyntax ${LANG_English} "Add syntax highlighting for NSIS to Sublime Text (or Textmate)"
+LangString DESC_sublimeSyntax ${LANG_English} "Add syntax highlighting Sublime Text (or Textmate)"
+LangString DESC_sublimeNsisSyntax ${LANG_English} "Add syntax highlighting for NSIS scripts"
+LangString DESC_sublimeNlfSyntax ${LANG_English} "Add syntax highlighting for NSIS language files"
 LangString DESC_sublimeAutoCompletion ${LANG_English} "Add code completion for NSIS to Sublime Text"
 LangString DESC_sublimeCmdCompletion ${LANG_English} "Code completion for all NSIS commands, Useful Headers, and bundled plug-ins"
 LangString DESC_sublimePlugCompletion ${LANG_English} "Code completion for third party plug-ins and macros"
@@ -102,6 +115,8 @@ LangString DESC_sublimeMenu ${LANG_English} "Add context menu entry to look-up N
 
 !insertmacro MUI_FUNCTION_DESCRIPTION_BEGIN
 	!insertmacro MUI_DESCRIPTION_TEXT ${sublimeSyntax} $(DESC_sublimeSyntax)
+	!insertmacro MUI_DESCRIPTION_TEXT ${sublimeNsisSyntax} $(DESC_sublimeNsisSyntax)
+	!insertmacro MUI_DESCRIPTION_TEXT ${sublimeNlfSyntax} $(DESC_sublimeNlfSyntax)
 	!insertmacro MUI_DESCRIPTION_TEXT ${sublimeAutoCompletion} $(DESC_sublimeAutoCompletion)
 	!insertmacro MUI_DESCRIPTION_TEXT ${sublimeCmdCompletion} $(DESC_sublimeCmdCompletion)
 	!insertmacro MUI_DESCRIPTION_TEXT ${sublimePlugCompletion} $(DESC_sublimePlugCompletion)
